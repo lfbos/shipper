@@ -2,7 +2,7 @@ FROM golang:alpine
 
 RUN apk --no-cache add git ca-certificates
 
-WORKDIR /go/src/github.com/lfbos/shipper/consignment-service
+WORKDIR /go/src/github.com/lfbos/shipper/consignment-cli
 
 COPY . .
 
@@ -11,4 +11,4 @@ RUN dep init && dep ensure
 
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo .
 
-CMD ["./consignment-service"]
+CMD ["./consignment-cli"]
